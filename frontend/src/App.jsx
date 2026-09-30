@@ -1,42 +1,42 @@
-import { useState } from 'react'
-import { TopNavbar } from './components/TopNavbar'
-import { InvitationCard } from './components/InvitationCard'
-import { ScheduleSection } from './components/ScheduleSection'
-import { LocationSection } from './components/LocationSection'
-import { RsvpModal } from './components/RsvpModal'
+import React from 'react'
+import { Navbar } from './components/Navbar'
+import { HeroSection } from './components/HeroSection'
+import { InfoHighlights } from './components/InfoHighlights'
+import { SpotlightSection } from './components/SpotlightSection'
+import { CategoryCards } from './components/CategoryCards'
+import { RsvpFormCard } from './components/RsvpFormCard'
+import { Footer } from './components/Footer'
 
 export default function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const scrollToRsvp = () => {
+    const el = document.getElementById('rsvp')
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
   return (
-    <div className="min-h-screen bg-slate-100 text-slate-900 font-sans pb-20">
-      {/* 1. Thanh Top Navigation Bar cố định phía trên */}
-      <TopNavbar onOpenRsvp={() => setIsModalOpen(true)} />
+    <div className="min-h-screen bg-hutech-light-bg flex flex-col">
+      {/* 1. Header Bar trên cùng */}
+      <Navbar onScrollToRsvp={scrollToRsvp} />
 
-      {/* Pattern nền trang trí */}
-      <div className="fixed inset-0 pointer-events-none opacity-40 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] bg-size-[20px_20px]" />
+      {/* 2. Hero Section Xanh Navy & Đếm ngược */}
+      <HeroSection onScrollToRsvp={scrollToRsvp} />
 
-      <main className="relative max-w-xl mx-auto px-4 pt-6 sm:pt-10 space-y-6">
-        {/* Khung Thiệp mời chính */}
-        <InvitationCard onOpenRsvp={() => setIsModalOpen(true)} />
+      {/* 3. 3 Thẻ thông tin sự kiện nổi bật */}
+      <InfoHighlights />
 
-        {/* Lịch trình chi tiết các mốc giờ */}
-        <ScheduleSection />
+      {/* 4. Hình ảnh Tân khoa, thông điệp và 3 số liệu */}
+      <SpotlightSection />
 
-        {/* Bản đồ và hướng dẫn gửi xe tại trường */}
-        <LocationSection />
+      {/* 5. 4 Thẻ chuyên mục hướng dẫn */}
+      <CategoryCards onOpenRsvp={scrollToRsvp} />
 
-        {/* Footer */}
-        <footer className="text-center pt-4 text-xs text-slate-400 space-y-1">
-          <p>© 2026 Lễ Tốt Nghiệp HUTECH • Thiết kế bởi Tân Khoa</p>
-          <p className="italic">
-            Rất hân hạnh được đón tiếp Quý Thầy Cô, Gia Đình & Các Bạn!
-          </p>
-        </footer>
-      </main>
+      {/* 6. Form RSVP xác nhận tham dự có icon mũ mờ */}
+      <RsvpFormCard />
 
-      {/* Modal Popup RSVP */}
-      <RsvpModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      {/* 7. Chân trang Footer */}
+      <Footer />
     </div>
   )
 }
