@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Navbar } from './components/Navbar'
-import { HeroSection } from './components/HeroSection'
+import { InvitationCard } from './components/InvitationCard'
+import { LetterSection } from './components/LetterSection'
+import { PhotoboothBanner } from './components/PhotoboothBanner'
 import { InfoHighlights } from './components/InfoHighlights'
-import { SpotlightSection } from './components/SpotlightSection'
 import { CategoryCards } from './components/CategoryCards'
 import { RsvpFormCard } from './components/RsvpFormCard'
+import { RsvpModal } from './components/RsvpModal'
 import { Footer } from './components/Footer'
 
 export default function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  // Hàm cuộn mượt xuống Form đăng ký trên trang
   const scrollToRsvp = () => {
     const el = document.getElementById('rsvp')
     if (el) {
@@ -15,28 +20,38 @@ export default function App() {
     }
   }
 
+  // Hàm mở Modal Popup xác nhận nhanh
+  const handleOpenRsvpModal = () => {
+    setIsModalOpen(true)
+  }
+
   return (
-    <div className="min-h-screen bg-hutech-light-bg flex flex-col">
+    <div className="min-h-screen bg-hutech-light-bg flex flex-col font-sans text-slate-800">
       {/* 1. Header Bar trên cùng */}
       <Navbar onScrollToRsvp={scrollToRsvp} />
 
-      {/* 2. Hero Section Xanh Navy & Đếm ngược */}
-      <HeroSection onScrollToRsvp={scrollToRsvp} />
+      <main className="flex-1">
+        {/* 2. Thiệp Mời Minh Họa: Chiều rộng đã mở rộng, chữ nằm gọn trong khung lượn sóng */}
+        <InvitationCard onOpenRsvp={handleOpenRsvpModal} />
 
-      {/* 3. 3 Thẻ thông tin sự kiện nổi bật */}
-      <InfoHighlights />
+        {/* 3. Tâm Thư Của Tân Kỹ Sư */}
+        <LetterSection />
 
-      {/* 4. Hình ảnh Tân khoa, thông điệp và 3 số liệu */}
-      <SpotlightSection />
+        {/* 4. Banner Hẹn Gặp Check-in Photobooth Sảnh E3 */}
+        <PhotoboothBanner onOpenRsvp={handleOpenRsvpModal} />
 
-      {/* 5. 4 Thẻ chuyên mục hướng dẫn */}
-      <CategoryCards onOpenRsvp={scrollToRsvp} />
+        {/* 5. 4 Thẻ chuyên mục hướng dẫn chi tiết */}
+        <CategoryCards onOpenRsvp={scrollToRsvp} />
 
-      {/* 6. Form RSVP xác nhận tham dự có icon mũ mờ */}
-      <RsvpFormCard />
+        {/* 6. Form RSVP xác nhận trực tiếp */}
+        <RsvpFormCard />
+      </main>
 
       {/* 7. Chân trang Footer */}
       <Footer />
+
+      {/* 8. Modal Popup RSVP */}
+      <RsvpModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   )
 }

@@ -23,22 +23,22 @@ export const Navbar = ({ onScrollToRsvp }) => {
         {/* Menu Điều hướng */}
         <nav className="hidden md:flex items-center gap-6 text-xs font-semibold text-slate-600">
           <a href="#hero" className="hover:text-hutech-blue transition-colors">
-            Thông Điệp Lễ Tốt Nghiệp
+            Thiệp Mời
           </a>
           <a
             href="#schedule"
             className="hover:text-hutech-blue transition-colors"
           >
-            Lịch Trình & Khung Giờ
-          </a>
-          <a
-            href="#location"
-            className="hover:text-hutech-blue transition-colors"
-          >
-            Địa Điểm Trao Bằng (A-08.20)
+            Lịch Trình
           </a>
           <a href="#guide" className="hover:text-hutech-blue transition-colors">
-            Chỉ Dẫn Gửi Xe & Lưu Niệm
+            Chỉ đường
+          </a>
+          <a
+            href="#letter"
+            className="hover:text-hutech-blue transition-colors"
+          >
+            Lời chúc cho Tân Cử Nhân
           </a>
         </nav>
 
@@ -46,7 +46,7 @@ export const Navbar = ({ onScrollToRsvp }) => {
         <div>
           <button
             onClick={onScrollToRsvp}
-            className="px-5 py-2.5 bg-hutech-yellow hover:bg-hutech-gold text-slate-900 text-xs font-bold rounded-xl shadow-sm transition-all transform active:scale-95"
+            className="px-5 py-2.5 bg-hutech-yellow hover:bg-hutech-gold text-slate-900 text-xs font-bold rounded-xl shadow-sm transition-all transform active:scale-95 cursor-pointer"
           >
             Xác Nhận Tham Dự
           </button>

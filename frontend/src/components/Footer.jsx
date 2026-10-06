@@ -14,10 +14,10 @@ export const Footer = () => {
           <h3 className="text-base font-bold text-slate-800 mt-1 mb-2 font-serif">
             Lễ Bế Giảng &amp; Trao Bằng Tốt Nghiệp
           </h3>
-          <p className="text-slate-500 leading-relaxed text-xs">
-            Sự hiện diện của Quý khách, Quý Thầy Cô và các bạn bè là niềm vinh
-            dự to lớn cho Nguyễn Gia An và gia đình. Rất hân hạnh được tiếp đón
-            quý vị trong ngày lễ trang trọng và đong đầy kỷ niệm này.
+          <p className="text-slate-500 leading-relaxed text-xs max-w-md">
+            Sự hiện diện của Ba mẹ, Thầy Cô, người thân và bạn bè thân hữu là
+            niềm vinh dự to lớn đối với Con trong ngày lễ trang
+            trọng này.
           </p>
         </div>
 
@@ -26,16 +26,15 @@ export const Footer = () => {
             Ban Tổ Chức Lễ Tốt Nghiệp HUTECH
           </p>
           <p>
-            Sai Gon Campus: Khoa Công nghệ thông tin HUTECH, TP. Hồ Chí Minh
+            Thu Duc Campus: Khoa Công nghệ thông tin HUTECH, TP. Hồ Chí Minh
           </p>
           <p>Trụ sở chính: 475A Điện Biên Phủ, P. 25, Q. Bình Thạnh, TP.HCM</p>
-          <p>Điện thoại: (028) 5445 7777 • Hotline Tân khoa: (028) 5555 8878</p>
         </div>
       </div>
 
       <div className="max-w-5xl mx-auto pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-2">
         <p>
-          © 2026 Lễ Tốt Nghiệp Tân Khoa HUTECH (NGUYỄN GIA AN). All rights
+          © 2026 Lễ Tốt Nghiệp Tân Khoa HUTECH (PHAN XUÂN ANH TÀI). All rights
           reserved.
         </p>
         <div className="flex gap-4">
